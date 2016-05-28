@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "391406239801",
+    "project_id": "rockoff-4b65"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:391406239801:android:eb9c21831c9ff886",
+        "android_client_info": {
+          "package_name": "com.example.csci342.rockoff"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "391406239801-7ugsrja0ebbcttl065q2bm77gcs470gn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.csci342.rockoff",
+            "certificate_hash": "DFF5F908E6278BDE932E5D6453F3B97B48647433"
+          }
+        },
+        {
+          "client_id": "391406239801-op25qls8lji5bb0aa461jh7p3gbsq3ct.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAiuHr9OAJMd5-f3NU6leERWsk48eO12OY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
