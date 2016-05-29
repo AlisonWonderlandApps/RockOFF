@@ -1,7 +1,9 @@
 {
   "project_info": {
     "project_number": "391406239801",
-    "project_id": "rockoff-4b65"
+    "firebase_url": "https://rockoff-4b65.firebaseio.com",
+    "project_id": "rockoff-4b65",
+    "storage_bucket": "rockoff-4b65.appspot.com"
   },
   "client": [
     {
@@ -21,6 +23,10 @@
           }
         },
         {
+          "client_id": "391406239801-5gtgpoq0sprr5nf86do0ui2poip0udda.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
           "client_id": "391406239801-op25qls8lji5bb0aa461jh7p3gbsq3ct.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -35,11 +41,16 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "391406239801-5gtgpoq0sprr5nf86do0ui2poip0udda.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
-          "status": 1
+          "status": 2
         }
       }
     }

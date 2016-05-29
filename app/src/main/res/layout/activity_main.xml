@@ -20,14 +20,27 @@
     <com.google.android.gms.common.SignInButton
         android:id="@+id/sign_in_button"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="visible"
+        tools:visibility="gone" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/invite"
+        android:id="@+id/invitebutton"
+        android:layout_below="@+id/sign_in_button"
+        android:layout_centerHorizontal="true"
+        android:visibility="visible"
+        tools:visibility="gone"/>
 
     <LinearLayout
         android:id="@+id/sign_out_and_disconnect"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
         android:visibility="gone"
@@ -35,16 +48,31 @@
 
         <Button
             android:id="@+id/sign_out_button"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/sign_out" />
 
         <Button
             android:id="@+id/disconnect_button"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/disconnect" />
+
+        <Button
+            android:id="@+id/groupbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/group" />
+
+        <Button
+            android:id="@+id/userbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/user" />
     </LinearLayout>
+
 </RelativeLayout>

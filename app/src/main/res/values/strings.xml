@@ -7,4 +7,12 @@
 
     <string name="sign_out">Sign Out</string>
     <string name="disconnect">Disconnect</string>
+    <string name="invite">Invite</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="group">Group Function</string>
+    <string name="user">User Function</string>
+    <string name="add_group">Add Group</string>
+    <string name="add_user">Add user</string>
 </resources>
