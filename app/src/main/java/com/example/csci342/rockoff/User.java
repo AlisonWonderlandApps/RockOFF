@@ -1,5 +1,8 @@
 package com.example.csci342.rockoff;
 
+import android.net.Uri;
+
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -9,9 +12,11 @@ import java.util.Map;
 public class User {
     private String name;
     private String email;
-    private String image;
+    private Uri image;
+    private int rating;
     Map<String, Boolean> groups;
     Map<String, Boolean> groupadmin;
+    ArrayList<String>join_group_messages;
 
     public void setName(String name) {
         this.name = name;
@@ -29,14 +34,21 @@ public class User {
         return this.email;
     }
 
-    public void setImage(String image) {
+    public void setImage(Uri image) {
         this.image = image;
     }
 
-    public String getImage() {
+    public Uri getImage() {
         return this.image;
     }
 
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+
+    public int getRating() {
+        return this.rating;
+    }
 
     public void setGroups(Map<String, Boolean> groups) {
         this.groups = groups;
@@ -50,6 +62,18 @@ public class User {
             groups = new HashMap<>();
 
         groups.put(groupName, true);
+    }
+
+    public ArrayList<String> getJoin_group_messages(){
+        return join_group_messages;
+    }
+
+    public void setJoin_group_messages(ArrayList<String> messages) {
+        this.join_group_messages = messages;
+    }
+
+    public void append_join_group_messages(String message) {
+        join_group_messages.add(message);
     }
 
 //    public void setGroupAdmin(Map<String, Boolean> groupadmin) {

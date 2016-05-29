@@ -14,7 +14,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.sql.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -24,10 +26,14 @@ import java.util.Set;
 
 public class UserActivity extends AppCompatActivity {
     ArrayList<String> groupUID;
-    FirebaseDatabase database;
     ArrayList<String> groupname;
+
+    ArrayList<String> taskname;
+    ArrayList<String> taskUID;
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+
     Map<String, Boolean> map;
-    User user;
+
     int i = 0;
 
     @Override
@@ -37,16 +43,34 @@ public class UserActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        database = FirebaseDatabase.getInstance();
-        FirebaseUser fire = FirebaseAuth.getInstance().getCurrentUser();
+        //AddGoogleUser();
+        //getUserGroupName();
+        //getUserObj();
+
+    }
+
+    private void get_groupname(final String uid) {
+        final DatabaseReference groupref = database.getReference("groups");
+        groupref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Group group = dataSnapshot.child(uid).getValue(Group.class);
+                groupUID.add(uid);
+                groupname.add(group.getGroupname());
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
+    }
+
+    private void getUserGroupName() {
         final DatabaseReference useref = database.getReference("users");
-        groupUID = new ArrayList<String>();
-        user = new User();
-        map = new HashMap<String, Boolean>();
-
-        final Group group = new Group();
-
-
         useref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -54,7 +78,7 @@ public class UserActivity extends AppCompatActivity {
                     User user = child.getValue(User.class);
                     for (String key : user.getGroups().keySet()) {
                         String uid = key;
-                        display_groupname(uid);
+                        get_groupname(uid);
                     }
                 }
             }
@@ -64,26 +88,32 @@ public class UserActivity extends AppCompatActivity {
 
             }
         });
-
-
-//
-//        map.put("-KIua1BGVpg_mLyC1Swg", true);
-//
-//        user.setEmail(fire.getEmail());
-//        user.setName(fire.getDisplayName());
-//        user.setImage(String.valueOf(fire.getPhotoUrl()));
-//        user.setGroups(map);
-//        useref.push().setValue(user);
-
     }
 
-    private void display_groupname(final String uid) {
-        final DatabaseReference groupref = database.getReference("groups");
-        groupref.addListenerForSingleValueEvent(new ValueEventListener() {
+    private void AddGoogleUser() {
+        User user = new User();
+        FirebaseUser fire = FirebaseAuth.getInstance().getCurrentUser();
+        DatabaseReference useref = database.getReference("users");
+        ArrayList<String> messages = new ArrayList<String>(Arrays.asList("Hello, you will be joining team Wasabi!"));
+        map = new HashMap<String, Boolean>();
+        //TODO Let user choose which team to join
+        map.put("-KIxA84u6rt-iKw6H1SF", true);
+
+        user.setEmail(fire.getEmail());
+        user.setName(fire.getDisplayName());
+        user.setRating(4);
+        user.setJoin_group_messages(messages);
+        user.setGroups(map);
+        useref.child(fire.getUid()).setValue(user);
+    }
+
+    private void getUserObj() {
+        final FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        final DatabaseReference useref = database.getReference("users");
+        useref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                Group group = dataSnapshot.child(uid).getValue(Group.class);
-
+                User user = dataSnapshot.child(mAuth.getCurrentUser().getUid()).getValue(User.class);
             }
 
             @Override
@@ -91,7 +121,5 @@ public class UserActivity extends AppCompatActivity {
 
             }
         });
-
-
     }
 }
