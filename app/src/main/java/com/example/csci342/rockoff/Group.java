@@ -15,6 +15,8 @@ public class Group {
     private String groupname;
     private String admin;
     private Map<String, Boolean> members;
+    private Map<String, Boolean> assignedtasks;
+    private Map<String, Boolean> unassignedtasks;
 
     public Group() {
 
@@ -82,5 +84,33 @@ public class Group {
 
     public String getAdmin() {
         return this.admin;
+    }
+
+    public void setAssignedtasks(Map<String, Boolean> assignedtaskstasks) {
+        this.assignedtasks = assignedtaskstasks;
+    }
+    public Map<String, Boolean> getAssignedtasks () {
+        return this.assignedtasks;
+    }
+
+    public void addAssignedtasks(String taskid) {
+        if (assignedtasks == null)
+            assignedtasks = new HashMap<>();
+
+        assignedtasks.put(taskid, true);
+    }
+
+    public void setUnassignedtasks(Map<String, Boolean> unassignedtasks) {
+        this.unassignedtasks = unassignedtasks;
+    }
+    public Map<String, Boolean> getUnassignedtasks () {
+        return this.unassignedtasks;
+    }
+
+    public void addUnassignedtasks(String taskid) {
+        if (unassignedtasks == null)
+            unassignedtasks = new HashMap<>();
+
+        unassignedtasks.put(taskid, true);
     }
 }

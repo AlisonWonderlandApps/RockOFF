@@ -15,4 +15,9 @@
     <string name="user">User Function</string>
     <string name="add_group">Add Group</string>
     <string name="add_user">Add user</string>
+    <string name="card">Card game</string>
+    <string name="play_game">Play game!</string>
+    <string name="winner">Get Winner</string>
+    <string name="task">Task Function</string>
+    <string name="addtask">Add Task</string>
 </resources>

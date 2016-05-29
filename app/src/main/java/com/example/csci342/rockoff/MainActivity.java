@@ -76,6 +76,8 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         findViewById(R.id.invitebutton).setOnClickListener(this);
         findViewById(R.id.groupbutton).setOnClickListener(this);
         findViewById(R.id.userbutton).setOnClickListener(this);
+        findViewById(R.id.cardbutton).setOnClickListener(this);
+        findViewById(R.id.tasks).setOnClickListener(this);
         // Configure sign-in to request the user's ID, email address, and basic
         // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -262,6 +264,16 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         startActivity(intent);
     }
 
+    private void cardgame() {
+        Intent intent = new Intent(this, CardActivity.class);
+        startActivity(intent);
+    }
+
+    private void taskfunc() {
+        Intent intent = new Intent(this, TaskActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -282,6 +294,12 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                 break;
             case R.id.userbutton:
                 userfunc();
+                break;
+            case R.id.cardbutton:
+                cardgame();
+                break;
+            case R.id.tasks:
+                taskfunc();
                 break;
         }
     }

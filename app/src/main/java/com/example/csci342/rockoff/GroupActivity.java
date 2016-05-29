@@ -19,12 +19,15 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 public class GroupActivity extends AppCompatActivity {
     private String TAG = "Group Activity";
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     ArrayList<String> memberlist = new ArrayList<String>();
     ArrayList<String> memberuid = new ArrayList<String>();
+    Map<String, Boolean> assignedtaskmap = new HashMap<String, Boolean>();
+    Map<String, Boolean> unassignedtaskmap = new HashMap<String, Boolean>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +42,8 @@ public class GroupActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //AddGroup();
-                getmemberuid();
+                //getmemberuid();
+                getAssignedTasks();
 
             }
         });
@@ -59,6 +63,7 @@ public class GroupActivity extends AppCompatActivity {
         group.setNumberoftask(10);
         group.setNotassignedtask(4);
         group.setGroups(map);
+        group.setAssignedtasks(assignedtaskmap);
 
         groupref.push().setValue(group);
 
@@ -94,6 +99,48 @@ public class GroupActivity extends AppCompatActivity {
                 User user = dataSnapshot.child(uid).getValue(User.class);
                 memberlist.add(user.getName());
                 memberuid.add(uid);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    private void getAssignedTasks() {
+        DatabaseReference userref = database.getReference("users");
+
+        userref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot child : dataSnapshot.getChildren()) {
+                    User user = child.getValue(User.class);
+                    for (String key : user.groups.keySet()) {
+                        assignedtaskmap.put(key, true);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    private void getUnassignedTasks() {
+        DatabaseReference taskref = database.getReference("Tasks");
+
+        taskref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot child : dataSnapshot.getChildren()) {
+                    Task task = child.getValue(Task.class);
+                    if(!task.getAssigned()) {
+                        unassignedtaskmap.put(child.getKey(), true);
+                    }
+                }
             }
 
             @Override

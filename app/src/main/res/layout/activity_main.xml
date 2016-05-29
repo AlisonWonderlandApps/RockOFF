@@ -58,6 +58,13 @@
             android:text="@string/disconnect" />
 
         <Button
+            android:id="@+id/userbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/user" />
+
+        <Button
             android:id="@+id/groupbutton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -65,11 +72,18 @@
             android:text="@string/group" />
 
         <Button
-            android:id="@+id/userbutton"
+            android:id="@+id/tasks"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/user" />
+            android:text="@string/task" />
+
+        <Button
+            android:id="@+id/cardbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/card" />
     </LinearLayout>
 
 </RelativeLayout>

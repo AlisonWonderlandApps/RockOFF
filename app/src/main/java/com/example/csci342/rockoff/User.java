@@ -16,6 +16,7 @@ public class User {
     private int rating;
     Map<String, Boolean> groups;
     Map<String, Boolean> groupadmin;
+    Map<String, Boolean> tasks;
     ArrayList<String>join_group_messages;
 
     public void setName(String name) {
@@ -50,6 +51,20 @@ public class User {
         return this.rating;
     }
 
+    public void setTasks(Map<String, Boolean> tasks) {
+        this.tasks = tasks;
+    }
+    public Map<String, Boolean> getTasks () {
+        return this.tasks;
+    }
+
+    public void addTasks(String taskid) {
+        if (tasks == null)
+            tasks = new HashMap<>();
+
+        tasks.put(taskid, true);
+    }
+
     public void setGroups(Map<String, Boolean> groups) {
         this.groups = groups;
     }
@@ -57,11 +72,11 @@ public class User {
         return this.groups;
     }
 
-    public void addGroup(String groupName) {
+    public void addGroup(String groupID) {
         if (groups == null)
             groups = new HashMap<>();
 
-        groups.put(groupName, true);
+        groups.put(groupID, true);
     }
 
     public ArrayList<String> getJoin_group_messages(){

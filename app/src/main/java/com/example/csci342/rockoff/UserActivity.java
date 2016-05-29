@@ -28,8 +28,10 @@ public class UserActivity extends AppCompatActivity {
     ArrayList<String> groupUID;
     ArrayList<String> groupname;
 
-    ArrayList<String> taskname;
-    ArrayList<String> taskUID;
+    ArrayList<String> assignedtaskname = new ArrayList<String>();
+    ArrayList<String> assignedtaskUID = new ArrayList<String>();
+    ArrayList<String> unassignedtaskname = new ArrayList<String>();
+    ArrayList<String> unassignedtaskUID = new ArrayList<String>();
     FirebaseDatabase database = FirebaseDatabase.getInstance();
 
     Map<String, Boolean> map;
@@ -43,6 +45,7 @@ public class UserActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
 
+        getAssignedTask();
         //AddGoogleUser();
         //getUserGroupName();
         //getUserObj();
@@ -96,14 +99,17 @@ public class UserActivity extends AppCompatActivity {
         DatabaseReference useref = database.getReference("users");
         ArrayList<String> messages = new ArrayList<String>(Arrays.asList("Hello, you will be joining team Wasabi!"));
         map = new HashMap<String, Boolean>();
+        HashMap<String, Boolean> taskmap = new HashMap<String, Boolean>();
         //TODO Let user choose which team to join
         map.put("-KIxA84u6rt-iKw6H1SF", true);
+        taskmap.put("-KIxXkZMfdvKPUJM9HLg", true);
 
         user.setEmail(fire.getEmail());
         user.setName(fire.getDisplayName());
         user.setRating(4);
         user.setJoin_group_messages(messages);
         user.setGroups(map);
+        user.setTasks(taskmap);
         useref.child(fire.getUid()).setValue(user);
     }
 
@@ -116,6 +122,98 @@ public class UserActivity extends AppCompatActivity {
                 User user = dataSnapshot.child(mAuth.getCurrentUser().getUid()).getValue(User.class);
             }
 
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    private void getUnassignedTask() {
+        DatabaseReference userref = database.getReference("users");
+        userref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot child : dataSnapshot.getChildren()) {
+                    User user = child.getValue(User.class);
+
+                    for (String key : user.getTasks().keySet()) {
+                        setUnassignedTaskList(key);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    private void setUnassignedTaskList(final String uid) {
+        DatabaseReference taskref = database.getReference("Tasks");
+        taskref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot child : dataSnapshot.getChildren()) {
+
+                    if (!child.getKey().equals(uid)) {
+                        Task task = child.getValue(Task.class);
+
+                        unassignedtaskname.add(task.getName());
+                        unassignedtaskUID.add(child.getKey());
+
+                    }
+                }
+
+
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    private void getAssignedTask() {
+        DatabaseReference userref = database.getReference("users");
+        userref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot child : dataSnapshot.getChildren()) {
+                    User user = child.getValue(User.class);
+
+                    for (String key : user.getTasks().keySet()) {
+                        setAssignedTaskList(key);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    private void setAssignedTaskList(final String uid) {
+        DatabaseReference taskref = database.getReference("Tasks");
+        taskref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot child : dataSnapshot.getChildren()) {
+
+                    if (child.getKey().equals(uid)) {
+                        Task task = child.getValue(Task.class);
+
+                        assignedtaskname.add(task.getName());
+                        assignedtaskUID.add(child.getKey());
+
+                    }
+                }
+
+
+            }
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
