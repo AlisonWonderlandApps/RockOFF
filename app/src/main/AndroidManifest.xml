@@ -16,7 +16,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".GroupActivity" />
-        <activity android:name=".UserActivity"></activity>
+        <activity android:name=".InviteActivity" />
+        <activity android:name=".UserActivity" />
+        <activity android:name=".TaskActivity"></activity>
     </application>
 
 </manifest>

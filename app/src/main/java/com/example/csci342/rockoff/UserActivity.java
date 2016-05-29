@@ -14,12 +14,22 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 public class UserActivity extends AppCompatActivity {
+    ArrayList<String> groupUID;
+    FirebaseDatabase database;
+    ArrayList<String> groupname;
+    Map<String, Boolean> map;
+    User user;
+    int i = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,33 +37,34 @@ public class UserActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        database = FirebaseDatabase.getInstance();
         FirebaseUser fire = FirebaseAuth.getInstance().getCurrentUser();
-        DatabaseReference useref = database.getReference("users");
-        final DatabaseReference groupref = database.getReference("groups");
+        final DatabaseReference useref = database.getReference("users");
+        groupUID = new ArrayList<String>();
+        user = new User();
+        map = new HashMap<String, Boolean>();
 
-        User user = new User();
         final Group group = new Group();
-        HashMap<String, Boolean> map = new HashMap<String, Boolean>();
 
 
-        ValueEventListener valueEventListener = new ValueEventListener() {
+        useref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot child : dataSnapshot.getChildren()) {
-                    String c = child.getKey();
-                    Log.d("Child ID", c);
+                    User user = child.getValue(User.class);
+                    for (String key : user.getGroups().keySet()) {
+                        String uid = key;
+                        display_groupname(uid);
+                    }
                 }
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                Log.w("Error", "Failed to read value.", databaseError.toException());
-            }
-        };
-        groupref.addValueEventListener(valueEventListener);
 
-        
+            }
+        });
+
 
 //
 //        map.put("-KIua1BGVpg_mLyC1Swg", true);
@@ -63,6 +74,24 @@ public class UserActivity extends AppCompatActivity {
 //        user.setImage(String.valueOf(fire.getPhotoUrl()));
 //        user.setGroups(map);
 //        useref.push().setValue(user);
+
+    }
+
+    private void display_groupname(final String uid) {
+        final DatabaseReference groupref = database.getReference("groups");
+        groupref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Group group = dataSnapshot.child(uid).getValue(Group.class);
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
 
     }
 }

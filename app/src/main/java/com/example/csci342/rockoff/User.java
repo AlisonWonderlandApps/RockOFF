@@ -11,6 +11,7 @@ public class User {
     private String email;
     private String image;
     Map<String, Boolean> groups;
+    Map<String, Boolean> groupadmin;
 
     public void setName(String name) {
         this.name = name;
@@ -40,6 +41,9 @@ public class User {
     public void setGroups(Map<String, Boolean> groups) {
         this.groups = groups;
     }
+    public Map<String, Boolean> getGroups () {
+        return this.groups;
+    }
 
     public void addGroup(String groupName) {
         if (groups == null)
@@ -47,5 +51,16 @@ public class User {
 
         groups.put(groupName, true);
     }
+
+//    public void setGroupAdmin(Map<String, Boolean> groupadmin) {
+//        this.groupadmin = groupadmin;
+//    }
+//
+//    public void addGroupAdmin(String groupName) {
+//        if (groupadmin == null)
+//            groupadmin = new HashMap<>();
+//
+//        groupadmin.put(groupName, true);
+//    }
 
 }

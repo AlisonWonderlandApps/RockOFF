@@ -175,7 +175,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
             // Signed in successfully, show authenticated UI.
             GoogleSignInAccount acct = result.getSignInAccount();
             mStatusTextView.setText(getString(R.string.signed_in_fmt, acct.getDisplayName()));
-            Toast.makeText(this, "Signed in", Toast.LENGTH_SHORT).show();
             updateUI(true);
         } else {
 
@@ -186,12 +185,10 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     private void updateUI(boolean signedIn) {
         if (signedIn) {
             findViewById(R.id.sign_in_button).setVisibility(View.GONE);
-            findViewById(R.id.invitebutton).setVisibility(View.GONE);
             findViewById(R.id.sign_out_and_disconnect).setVisibility(View.VISIBLE);
         } else {
             mStatusTextView.setText(R.string.signed_out);
             findViewById(R.id.sign_in_button).setVisibility(View.VISIBLE);
-            findViewById(R.id.invitebutton).setVisibility(View.VISIBLE);
             findViewById(R.id.sign_out_and_disconnect).setVisibility(View.GONE);
         }
     }
@@ -250,12 +247,12 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     }
 
     private void invite() {
-        Toast.makeText(this, "Inivte member", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, InviteActivity.class);
+        startActivity(intent);
 
     }
 
     private void groupfunc() {
-        Toast.makeText(this, "Group function", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(this, GroupActivity.class);
         startActivity(intent);
     }
@@ -279,6 +276,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                 break;
             case R.id.groupbutton:
                 groupfunc();
+                break;
             case R.id.invitebutton:
                 invite();
                 break;
