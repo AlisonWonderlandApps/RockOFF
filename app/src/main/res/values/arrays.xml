@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name = "tasks">
+        <item>Wash Dishes</item>
+        <item>Clean Bathroom</item>
+        <item>Take rubbish out</item>
+        <item>Clean Fridge</item>
+        <item>Take bins out</item>
+        <item>Feed cats</item>
+        <item>Mow lawn</item>
+        <item>Vacuum floors</item>
+
+    </array>
+
+    <array name = "groups">
+        <item>house</item>
+        <item>home</item>
+        <item>garden</item>
+        <item>school</item>
+        <item>work</item>
+        <item>fun</item>
+        <item>hobby</item>
+        <item>family</item>
+
+    </array>
+
+    <array name = "groupTypeIcons">
+        <item>@drawable/ic_group_home</item>
+        <item>@drawable/ic_group_flower</item>
+        <item>@drawable/ic_group_flower1</item>
+        <item>@drawable/ic_group_house</item>
+        <item>@drawable/ic_group_key</item>
+        <item>@drawable/ic_group_school</item>
+        <item>@drawable/ic_group_smile</item>
+        <item>@drawable/ic_group_clipboard</item>
+        <item>@drawable/ic_group_paint</item>
+        <item>@drawable/ic_group_weekend</item>
+        <item>@drawable/ic_group_shop</item>
+        <item>@drawable/ic_group_family</item>
+        <item>@drawable/ic_group_restaurant</item>
+
+    </array>
+
+    <array name = "cardImages" >
+        <item>@drawable/hearts_1</item>
+        <item>@drawable/hearts_2</item>
+        <item>@drawable/hearts_3</item>
+        <item>@drawable/hearts_4</item>
+        <item>@drawable/hearts_5</item>
+        <item>@drawable/hearts_6</item>
+        <item>@drawable/hearts_7</item>
+        <item>@drawable/hearts_8</item>
+        <item>@drawable/hearts_9</item>
+        <item>@drawable/hearts_10</item>
+        <item>@drawable/hearts_11jack</item>
+        <item>@drawable/hearts_12queen</item>
+        <item>@drawable/hearts_13king</item>
+
+        <item>@drawable/diamonds_1</item>
+        <item>@drawable/diamonds_2</item>
+        <item>@drawable/diamonds_3</item>
+        <item>@drawable/diamonds_4</item>
+        <item>@drawable/diamonds_5</item>
+        <item>@drawable/diamonds_6</item>
+        <item>@drawable/diamonds_7</item>
+        <item>@drawable/diamonds_8</item>
+        <item>@drawable/diamonds_9</item>
+        <item>@drawable/diamonds_10</item>
+        <item>@drawable/diamonds_11jack</item>
+        <item>@drawable/diamonds_12queen</item>
+        <item>@drawable/diamonds_13king</item>
+
+        <item>@drawable/clubs_1</item>
+        <item>@drawable/clubs_2</item>
+        <item>@drawable/clubs_3</item>
+        <item>@drawable/clubs_4</item>
+        <item>@drawable/clubs_5</item>
+        <item>@drawable/clubs_6</item>
+        <item>@drawable/clubs_7</item>
+        <item>@drawable/clubs_8</item>
+        <item>@drawable/clubs_9</item>
+        <item>@drawable/clubs_10</item>
+        <item>@drawable/clubs_11jack</item>
+        <item>@drawable/clubs_12queen</item>
+        <item>@drawable/clubs_13king</item>
+
+        <item>@drawable/spades_1</item>
+        <item>@drawable/spades_2</item>
+        <item>@drawable/spades_3</item>
+        <item>@drawable/spades_4</item>
+        <item>@drawable/spades_5</item>
+        <item>@drawable/spades_6</item>
+        <item>@drawable/spades_7</item>
+        <item>@drawable/spades_8</item>
+        <item>@drawable/spades_9</item>
+        <item>@drawable/spades_10</item>
+        <item>@drawable/spades_11jack</item>
+        <item>@drawable/spades_12queen</item>
+        <item>@drawable/spades_13king</item>
+
+
+        <item>@drawable/joker_black</item>
+        <item>@drawable/joker_red</item>
+    </array>
+
+
+
+
+</resources>

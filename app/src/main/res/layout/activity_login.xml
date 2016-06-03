@@ -1,0 +1,204 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.csit321sl01a.cardtaskr.LoginActivity">
+
+    <!-- Login progress -->
+    <ProgressBar
+        android:id="@+id/login_progress"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone" />
+
+    <ScrollView
+        android:id="@+id/login_form"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/email_login_form"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <AutoCompleteTextView
+                    android:id="@+id/name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Name"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"
+                    android:singleLine="true" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <AutoCompleteTextView
+                    android:id="@+id/email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/prompt_email"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"
+                    android:singleLine="true" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/prompt_password"
+                    android:imeActionId="@+id/login"
+                    android:imeActionLabel="@string/action_sign_in_short"
+                    android:imeOptions="actionUnspecified"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:singleLine="true" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <Button
+                android:id="@+id/email_sign_in_button"
+                style="?android:textAppearanceSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/action_sign_in"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical"
+        android:weightSum="3">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:text="or register/login with..."
+            android:id="@+id/textView4"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight=".5"
+            android:gravity="center_horizontal|bottom"
+            android:textColor="#8b8b8b"
+            android:textIsSelectable="true"
+            android:layout_marginTop="4dp" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:weightSum="3"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_marginBottom="4dp"
+            android:id="@+id/RegSocialIconLayout">
+
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:id="@+id/RegFacebook"
+                android:layout_weight="1"
+                android:src="@drawable/facebookicon"
+                android:scaleType="centerInside"
+                android:adjustViewBounds="true"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp" />
+
+            <!--<com.google.android.gms.common.SignInButton-->
+                <!--android:id="@+id/RegGPlus"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:scaleType="centerInside"-->
+                <!--android:layout_weight="1"-->
+                <!--android:adjustViewBounds="true"-->
+                <!--android:layout_marginLeft="4dp"-->
+                <!--android:layout_marginRight="4dp"/>-->
+
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:id="@+id/RegGPlus"
+                android:layout_weight="1"
+                android:src="@drawable/gplusicon"
+                android:scaleType="centerInside"
+                android:adjustViewBounds="true"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp" />
+
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:id="@+id/RegLinkdIn"
+                android:layout_weight="1"
+                android:src="@drawable/linkedinicon"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center_horizontal"
+            android:weightSum="2"
+            android:id="@+id/RegBottomTextLayout"
+            android:layout_weight=".5"
+            android:gravity="bottom|end">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="Login Help"
+            android:id="@+id/RegHelpButton"
+            android:layout_weight="1"
+            android:gravity="start"
+            android:layout_marginLeft="16dp"
+            android:background="#00000000"
+            android:textColor="#a0a0a0"
+            android:textStyle="italic" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Forgot Password?"
+            android:id="@+id/RegForgotPWButton"
+            android:layout_weight="1"
+            android:layout_marginRight="16dp"
+            android:gravity="end"
+            android:background="#00000000"
+            android:textColor="#a0a0a0"
+            android:textStyle="italic" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

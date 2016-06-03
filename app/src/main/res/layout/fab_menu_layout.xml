@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="8dp">
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab1compass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@android:drawable/ic_menu_compass"
+        android:visibility="visible"
+        app:fabSize="mini"
+        app:backgroundTint="@color/colorPrimary" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab2places"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@android:drawable/ic_menu_myplaces"
+        android:visibility="visible"
+        app:fabSize="mini"
+        app:backgroundTint="@color/colorPrimary" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab3share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@android:drawable/ic_menu_share"
+        android:visibility="visible"
+        app:fabSize="mini"
+        app:backgroundTint="@color/colorPrimary" />
+</FrameLayout>

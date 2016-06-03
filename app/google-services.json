@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "676206416328",
+    "firebase_url": "https://cardtaskr.firebaseio.com",
+    "project_id": "cardtaskr",
+    "storage_bucket": "cardtaskr.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:676206416328:android:6fed8fe3d749d3e6",
+        "android_client_info": {
+          "package_name": "com.example.csit321sl01a.cardtaskr"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "676206416328-sot6dkr0qnvdvpmfkq2a2tlodnnsq4jk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.csit321sl01a.cardtaskr",
+            "certificate_hash": "DFF5F908E6278BDE932E5D6453F3B97B48647433"
+          }
+        },
+        {
+          "client_id": "676206416328-jma3bultnft4hat7snk86fgpugc6pere.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZvwO6RKzvXxHk8PYO2P-YxG9fgIw_P9s"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "676206416328-jma3bultnft4hat7snk86fgpugc6pere.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

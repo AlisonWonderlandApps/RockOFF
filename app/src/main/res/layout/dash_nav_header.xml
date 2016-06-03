@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/nav_header_height"
+    android:background="@drawable/side_nav_bar"
+    android:orientation="horizontal"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark"
+    android:baselineAligned="true"
+    android:nestedScrollingEnabled="true"
+    android:weightSum="5"
+    android:padding="8dp">
+
+    <ImageView
+        android:id="@+id/userPicture"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/lol_guy"
+        android:background="@color/colorAccent"
+        android:adjustViewBounds="true"
+        android:padding="2dp"
+        android:scaleType="fitCenter"
+        android:layout_weight="2"
+        android:baselineAlignBottom="true"
+        android:layout_gravity="bottom"
+        android:elevation="4dp"
+        android:cropToPadding="true" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Matt Pearce"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:id="@+id/userName"
+        android:layout_weight="3"
+        android:layout_marginLeft="12dp"
+        android:layout_marginBottom="4dp"
+        android:gravity="start"
+        android:layout_gravity="bottom" />
+
+</LinearLayout>
